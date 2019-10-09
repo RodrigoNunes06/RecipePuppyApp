@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol RecipeRepository {
+    func searchRecipes(recipe: String,
+                       page: Int,
+                       completion: @escaping(Result<[Recipe], Error>) -> Void)
+}
