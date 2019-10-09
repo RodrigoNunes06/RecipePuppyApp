@@ -13,3 +13,8 @@ enum NetworkError : String, Error {
     case encodingFailed = "Parameter encoding failed"
     case missingURL = "URL is nil"
 }
+
+enum NetworkResponseError: String, Error {
+    case noData = "No data"
+    case unableToDecode = "Unable to decode"
+}
