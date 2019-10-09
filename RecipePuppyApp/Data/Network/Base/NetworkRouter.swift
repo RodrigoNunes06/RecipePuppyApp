@@ -11,17 +11,22 @@ import Foundation
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
 protocol NetworkRouter {
-    typealias EndPoint = NetworkEndPoint
+    associatedtype EndPoint = NetworkEndPoint
     func request(_ endPoint: EndPoint, completion: @escaping NetworkRouterCompletion)
 }
 
 class Router<EndPoint: NetworkEndPoint>: NetworkRouter {
     private var task: URLSessionTask?
+    private let requestBuilder: NetworkRequestBuilderApi
     
-    func request(_ endPoint: NetworkEndPoint, completion: @escaping NetworkRouterCompletion) {
+    init(requestBuilder: NetworkRequestBuilderApi) {
+        self.requestBuilder = requestBuilder
+    }
+    
+    func request(_ endPoint: EndPoint, completion: @escaping NetworkRouterCompletion) {
         let session = URLSession.shared
         do {
-            let request = try self.buildRequest(from: endPoint)
+            let request = try requestBuilder.buildRequest(from: endPoint)
             self.task = session.dataTask(with: request, completionHandler: { (data, response, error) in
                 completion(data, response, error)
             })
@@ -32,54 +37,3 @@ class Router<EndPoint: NetworkEndPoint>: NetworkRouter {
     }
 }
 
-private extension Router {
-    func buildRequest(from endPoint: NetworkEndPoint) throws -> URLRequest {
-        var request = URLRequest(url: endPoint.baseURL.appendingPathComponent(endPoint.path),
-                                 cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                 timeoutInterval: 10.0)
-        
-        request.httpMethod = endPoint.httpMethod.rawValue
-        
-        do {
-            switch endPoint.task {
-            case .plainRequest:
-                request.setValue("application/json",
-                                 forHTTPHeaderField: "Content-Type")
-            case let .request(bodyParameters, urlParameters):
-                try self.configureParameters(bodyParameters: bodyParameters,
-                                             urlParameters: urlParameters,
-                                             request: &request)
-            case let .requestWithHeaders(bodyParameters, urlParameters, additionalHeaders):
-                self.addAdditionalHeaders(additionalHeaders, request: &request)
-                try self.configureParameters(bodyParameters: bodyParameters,
-                                             urlParameters: urlParameters,
-                                             request: &request)
-            }
-            return request
-        } catch {
-            throw error
-        }
-    }
-    
-    func configureParameters(bodyParameters: Parameters?,
-                             urlParameters: Parameters?,
-                             request: inout URLRequest) throws {
-        do {
-            if let bodyParameters = bodyParameters {
-                try JSONParameterEncoder.encode(urlRequest: &request, parameters: bodyParameters)
-            }
-            if let urlParameters = urlParameters {
-                try URLParameterEncoder.encode(urlRequest: &request, parameters: urlParameters)
-            }
-        } catch {
-            throw error
-        }
-    }
-    
-    func addAdditionalHeaders(_ additionalHeaders : HTTPHeaders?, request: inout URLRequest) {
-        guard let headers = additionalHeaders else { return }
-        headers.forEach { (key, value) in
-            request.setValue(value, forHTTPHeaderField: key)
-        }
-    }
-}
