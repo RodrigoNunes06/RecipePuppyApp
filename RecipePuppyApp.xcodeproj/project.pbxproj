@@ -19,10 +19,19 @@
 		9F5F966C234B3298008445C8 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F966B234B3298008445C8 /* ParameterEncoding.swift */; };
 		9FB896A8234C796C004C3B85 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896A7234C796C004C3B85 /* NetworkError.swift */; };
 		9FB896AA234C8121004C3B85 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896A9234C8121004C3B85 /* NetworkRouter.swift */; };
-		9FB896B1234CD02A004C3B85 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896B0234CD02A004C3B85 /* ServiceProtocol.swift */; };
 		9FB896B3234CD12E004C3B85 /* RecipiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896B2234CD12E004C3B85 /* RecipiesService.swift */; };
 		9FB896B6234CDA6F004C3B85 /* RecipiesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896B5234CDA6F004C3B85 /* RecipiesEndPoint.swift */; };
 		9FB896B8234CE730004C3B85 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896B7234CE730004C3B85 /* NetworkConstants.swift */; };
+		9FB896BA234CF40F004C3B85 /* RecipeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896B9234CF40F004C3B85 /* RecipeEntity.swift */; };
+		9FB896BD234D05B2004C3B85 /* RecipeEntityDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896BC234D05B2004C3B85 /* RecipeEntityDataMapper.swift */; };
+		9FB896BF234D05F6004C3B85 /* DataMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896BE234D05F6004C3B85 /* DataMapperProtocol.swift */; };
+		9FB896C1234D06C0004C3B85 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896C0234D06C0004C3B85 /* Recipe.swift */; };
+		9FB896C3234D18C3004C3B85 /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896C2234D18C3004C3B85 /* RecipeRepository.swift */; };
+		9FB896C5234D1F42004C3B85 /* RecipeRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896C4234D1F42004C3B85 /* RecipeRepositoryImpl.swift */; };
+		9FB896C7234D3FB2004C3B85 /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896C6234D3FB2004C3B85 /* NetworkRequestBuilder.swift */; };
+		9FB896C9234DCE63004C3B85 /* RecipeApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896C8234DCE63004C3B85 /* RecipeApiResponse.swift */; };
+		9FB896CB234DD109004C3B85 /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896CA234DD109004C3B85 /* BaseUseCase.swift */; };
+		9FB896CD234DD906004C3B85 /* SearchRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896CC234DD906004C3B85 /* SearchRecipeUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +70,19 @@
 		9F5F966B234B3298008445C8 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		9FB896A7234C796C004C3B85 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		9FB896A9234C8121004C3B85 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
-		9FB896B0234CD02A004C3B85 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		9FB896B2234CD12E004C3B85 /* RecipiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesService.swift; sourceTree = "<group>"; };
 		9FB896B5234CDA6F004C3B85 /* RecipiesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesEndPoint.swift; sourceTree = "<group>"; };
 		9FB896B7234CE730004C3B85 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		9FB896B9234CF40F004C3B85 /* RecipeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntity.swift; sourceTree = "<group>"; };
+		9FB896BC234D05B2004C3B85 /* RecipeEntityDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntityDataMapper.swift; sourceTree = "<group>"; };
+		9FB896BE234D05F6004C3B85 /* DataMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapperProtocol.swift; sourceTree = "<group>"; };
+		9FB896C0234D06C0004C3B85 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		9FB896C2234D18C3004C3B85 /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
+		9FB896C4234D1F42004C3B85 /* RecipeRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepositoryImpl.swift; sourceTree = "<group>"; };
+		9FB896C6234D3FB2004C3B85 /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
+		9FB896C8234DCE63004C3B85 /* RecipeApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeApiResponse.swift; sourceTree = "<group>"; };
+		9FB896CA234DD109004C3B85 /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
+		9FB896CC234DD906004C3B85 /* SearchRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +209,9 @@
 		9F5F965B234A2D96008445C8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9FB896BB234D0595004C3B85 /* Mappers */,
+				9FB896B9234CF40F004C3B85 /* RecipeEntity.swift */,
+				9FB896C8234DCE63004C3B85 /* RecipeApiResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -199,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5F9668234B30BB008445C8 /* Base */,
+				9FB896B4234CDA49004C3B85 /* Endpoint */,
 				9F5F965F234A3B56008445C8 /* Services */,
 			);
 			path = Network;
@@ -207,6 +229,7 @@
 		9F5F965D234A2DAF008445C8 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				9FB896C4234D1F42004C3B85 /* RecipeRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -214,7 +237,6 @@
 		9F5F965F234A3B56008445C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9FB896B0234CD02A004C3B85 /* ServiceProtocol.swift */,
 				9FB896B2234CD12E004C3B85 /* RecipiesService.swift */,
 			);
 			path = Services;
@@ -223,6 +245,7 @@
 		9F5F9660234A4663008445C8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9FB896C0234D06C0004C3B85 /* Recipe.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -230,6 +253,7 @@
 		9F5F9661234A4669008445C8 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				9FB896C2234D18C3004C3B85 /* RecipeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -237,6 +261,8 @@
 		9F5F9662234A4685008445C8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				9FB896CA234DD109004C3B85 /* BaseUseCase.swift */,
+				9FB896CC234DD906004C3B85 /* SearchRecipeUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -244,13 +270,14 @@
 		9F5F9668234B30BB008445C8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				9FB896B4234CDA49004C3B85 /* Endpoint */,
 				9FB896AD234C8B95004C3B85 /* Encoding */,
 				9F5F9666234B3079008445C8 /* HTTPMethod.swift */,
 				9F5F9669234B30CD008445C8 /* HTTPTask.swift */,
 				9FB896A7234C796C004C3B85 /* NetworkError.swift */,
 				9FB896A9234C8121004C3B85 /* NetworkRouter.swift */,
 				9FB896B7234CE730004C3B85 /* NetworkConstants.swift */,
+				9FB896C6234D3FB2004C3B85 /* NetworkRequestBuilder.swift */,
+				9F5F9664234B2FD4008445C8 /* NetworkEndPoint.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -266,10 +293,18 @@
 		9FB896B4234CDA49004C3B85 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
-				9F5F9664234B2FD4008445C8 /* NetworkEndPoint.swift */,
 				9FB896B5234CDA6F004C3B85 /* RecipiesEndPoint.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		9FB896BB234D0595004C3B85 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				9FB896BE234D05F6004C3B85 /* DataMapperProtocol.swift */,
+				9FB896BC234D05B2004C3B85 /* RecipeEntityDataMapper.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,17 +438,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FB896B8234CE730004C3B85 /* NetworkConstants.swift in Sources */,
+				9FB896C9234DCE63004C3B85 /* RecipeApiResponse.swift in Sources */,
+				9FB896BF234D05F6004C3B85 /* DataMapperProtocol.swift in Sources */,
 				9F5F9667234B3079008445C8 /* HTTPMethod.swift in Sources */,
+				9FB896C7234D3FB2004C3B85 /* NetworkRequestBuilder.swift in Sources */,
 				9FB896A8234C796C004C3B85 /* NetworkError.swift in Sources */,
 				9F5F966A234B30CD008445C8 /* HTTPTask.swift in Sources */,
 				9F5F9627234A2354008445C8 /* AppDelegate.swift in Sources */,
+				9FB896CB234DD109004C3B85 /* BaseUseCase.swift in Sources */,
+				9FB896BD234D05B2004C3B85 /* RecipeEntityDataMapper.swift in Sources */,
 				9FB896B6234CDA6F004C3B85 /* RecipiesEndPoint.swift in Sources */,
 				9FB896AA234C8121004C3B85 /* NetworkRouter.swift in Sources */,
 				9F5F966C234B3298008445C8 /* ParameterEncoding.swift in Sources */,
-				9FB896B1234CD02A004C3B85 /* ServiceProtocol.swift in Sources */,
 				9FB896B3234CD12E004C3B85 /* RecipiesService.swift in Sources */,
+				9FB896BA234CF40F004C3B85 /* RecipeEntity.swift in Sources */,
+				9FB896C5234D1F42004C3B85 /* RecipeRepositoryImpl.swift in Sources */,
+				9FB896C3234D18C3004C3B85 /* RecipeRepository.swift in Sources */,
 				9F5F9665234B2FD4008445C8 /* NetworkEndPoint.swift in Sources */,
+				9FB896CD234DD906004C3B85 /* SearchRecipeUseCase.swift in Sources */,
 				9F5F9629234A2354008445C8 /* SceneDelegate.swift in Sources */,
+				9FB896C1234D06C0004C3B85 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

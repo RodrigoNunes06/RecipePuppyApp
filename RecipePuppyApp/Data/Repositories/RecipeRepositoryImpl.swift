@@ -1,5 +1,5 @@
 //
-//  ServiceProtocol.swift
+//  RecipeRepositoryImpl.swift
 //  RecipePuppyApp
 //
 //  Created by Rodrigo Nunes on 10/8/19.
@@ -7,7 +7,3 @@
 //
 
 import Foundation
-
-protocol Service {
-    init(router: NetworkRouter)
-}
