@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct RecipeEntityDataMapper: DataMapper {
+    typealias Entity = RecipeEntity
+    typealias Domain = Recipe
+    
+    func transform(entity: Entity) -> Domain {
+        return Domain(title: entity.title ?? "",
+                      ingredients: entity.ingredients ?? "",
+                      imageURL: entity.imageURL ?? "")
+    }
+}
+

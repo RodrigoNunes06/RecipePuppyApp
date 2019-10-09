@@ -1,5 +1,5 @@
 //
-//  DataMapper.swift
+//  DataMapperProtocol.swift
 //  RecipePuppyApp
 //
 //  Created by Rodrigo Nunes on 10/8/19.
