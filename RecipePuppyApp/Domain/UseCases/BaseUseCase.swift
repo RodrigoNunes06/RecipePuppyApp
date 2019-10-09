@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class BaseUseCase<T> {
+    
+    let repository: T
+    
+    init(repository: T) {
+        self.repository = repository
+    }
+    
+}
