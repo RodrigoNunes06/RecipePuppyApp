@@ -1,5 +1,5 @@
 //
-//  Recipe.swift
+//  RecipeEntity.swift
 //  RecipePuppyApp
 //
 //  Created by Rodrigo Nunes on 10/8/19.
@@ -9,12 +9,26 @@
 import Foundation
 
 struct RecipeEntity {
-    let title: String?
-    let ingredients: String?
-    let imageURL: String?
+    let title: String
+    let ingredients: String
+    let imageURL: String
 }
 
-extension RecipeEntity: Codable {
-    enum 
+extension RecipeEntity: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case title
+        case ingredients
+        case imageURL = "thumbnail"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        title = try container.decode(String.self, forKey: .title)
+        ingredients = try container.decode(String.self, forKey: .ingredients)
+        imageURL = try container.decode(String.self, forKey: .imageURL)
+    }
 }
+
+
 
