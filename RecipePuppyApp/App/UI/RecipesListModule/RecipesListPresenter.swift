@@ -11,7 +11,7 @@ import Foundation
 //sourcery: AutoMockable
 protocol RecipesListPresenterInterface: class {
     func viewModelForIndex(_ index: Int) -> RecipeCollectionCellViewModel
-    func onTapFavorite()
+    func onTapFavorite(_ index: Int)
     func onTapCellWithIndex(_ index: Int)
     func onPagination()
     func onTapShowFavorites()
@@ -45,8 +45,14 @@ extension RecipesListPresenter: RecipesListPresenterInterface {
         return viewModel
     }
     
-    func onTapFavorite() {
-        // call interactor method for Local storage
+    func onTapFavorite(_ index: Int) {
+        guard let recipe = recipes?[index] else { return }
+        do {
+            try interactor?.saveRecipe(recipe: recipe)
+            view.showSavedAlert()
+        } catch {
+            //TODO: show error alert
+        }
     }
     
     func onTapCellWithIndex(_ index: Int) {

@@ -18,5 +18,12 @@ struct RecipeEntityDataMapper: DataMapper {
                       imageURL: entity.imageURL,
                       href: entity.href)
     }
+    
+    func inverseTransform(domain: Domain) -> Entity {
+        return Entity(title: domain.title,
+                      ingredients: domain.ingredients,
+                      imageURL: domain.imageURL,
+                      href: domain.href)
+    }
 }
 

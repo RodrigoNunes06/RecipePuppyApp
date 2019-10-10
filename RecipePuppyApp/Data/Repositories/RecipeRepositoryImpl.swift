@@ -34,4 +34,13 @@ final class RecipeRepositoryImpl: RecipeRepository {
         }
         return recipes
     }
+    
+    func saveFavoriteRecipe(recipe: Recipe) throws {
+        let recipeEntity = RecipeEntityDataMapper().inverseTransform(domain: recipe)
+        do {
+            try LocalDataManager.save(object: recipeEntity, with: recipeEntity.title)
+        } catch {
+            throw(error)
+        }
+    }
 }

@@ -22,7 +22,8 @@ class RecipesListRouter {
 
     static func setupModule() -> UINavigationController {
         let vc = RecipesListViewController()
-        let interactor = RecipesListInteractor(getRecipesUseCase: GetRecipeUseCase())
+        let interactor = RecipesListInteractor(getRecipesUseCase: GetRecipeUseCase(),
+                                               saveFavoriteRecipeUseCase: SaveFavoriteRecipeUseCase())
         let router = RecipesListRouter()
         let presenter = RecipesListPresenter(interactor: interactor, router: router, view: vc)
         let navigationController = UINavigationController(rootViewController: vc)

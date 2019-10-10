@@ -14,6 +14,7 @@ protocol RecipesListViewControllerInterface: class {
     func hideLoading()
     func reloadData()
     func appendData(at indexes: [Int])
+    func showSavedAlert()
 }
 
 class RecipesListViewController: UIViewController {
@@ -60,6 +61,15 @@ extension RecipesListViewController: RecipesListViewControllerInterface {
         collectionView.performBatchUpdates({
             collectionView.insertItems(at: indexPathArray)
         }, completion: nil)
+    }
+    
+    func showSavedAlert() {
+        let alertVC = UIAlertController(title: "Saved", message: "The recipe has been added to favorites", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { _ in
+            alertVC.dismiss(animated: true, completion: nil)
+        }
+        alertVC.addAction(action)
+        present(alertVC, animated: true, completion: nil)
     }
 }
 
@@ -109,6 +119,9 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         
         if let recipeCell = collectionViewCell as? RecipeCollectionViewCell {
             recipeCell.setup(viewModel: presenter!.viewModelForIndex(indexPath.item))
+            recipeCell.tapAction = { [unowned self] in
+                self.presenter?.onTapFavorite(indexPath.row)
+            }
         }
         
         return collectionViewCell
@@ -153,4 +166,3 @@ extension RecipesListViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 }
-

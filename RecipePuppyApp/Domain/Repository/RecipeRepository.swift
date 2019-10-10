@@ -16,4 +16,5 @@ protocol RecipeRepository {
                     completion: @escaping RepositoryResult)
     
     func getFavoriteRecipes() -> [Recipe]
+    func saveFavoriteRecipe(recipe: Recipe) throws
 }

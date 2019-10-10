@@ -9,10 +9,6 @@
 import UIKit
 import Kingfisher
 
-protocol RecipeCollectionViewCellDelegate: class {
-    func didTapFavorite(_ sender: Any)
-}
-
 class RecipeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private var imageView: UIImageView!
@@ -21,7 +17,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var favoriteButton: UIButton!
     @IBOutlet private var lactoseLabel: UILabel!
     
-    weak var delegate: RecipeCollectionViewCellDelegate?
+    var tapAction: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -71,6 +67,6 @@ private extension RecipeCollectionViewCell {
     }
     
     @IBAction func onTapFavorite(_ sender: Any) {
-        delegate?.didTapFavorite(sender)
+        tapAction?()
     }
 }

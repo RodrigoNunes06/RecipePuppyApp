@@ -15,7 +15,7 @@ struct RecipeEntity {
     let href: String
 }
 
-extension RecipeEntity: Decodable {
+extension RecipeEntity: Codable {
     private enum CodingKeys: String, CodingKey {
         case title
         case ingredients

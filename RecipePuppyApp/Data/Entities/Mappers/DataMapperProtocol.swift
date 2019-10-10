@@ -11,5 +11,6 @@ import Foundation
 protocol DataMapper {
     associatedtype Entity: Any
     associatedtype Domain: Any
-    func transform(entity: Entity) -> Domain 
+    func transform(entity: Entity) -> Domain
+    func inverseTransform(domain: Domain) -> Entity
 }

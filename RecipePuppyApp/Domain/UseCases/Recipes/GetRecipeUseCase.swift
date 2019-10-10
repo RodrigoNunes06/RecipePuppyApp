@@ -10,8 +10,8 @@ import Foundation
 
 protocol GetRecipeUseCaseInterface {
     func execute(recipe: String,
-    page: Int,
-    completion: @escaping RepositoryResult)
+                 page: Int,
+                 completion: @escaping RepositoryResult)
 }
 
 struct GetRecipeUseCase: GetRecipeUseCaseInterface {

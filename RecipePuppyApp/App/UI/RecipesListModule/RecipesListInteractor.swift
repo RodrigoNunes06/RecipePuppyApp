@@ -11,14 +11,17 @@ import Foundation
 //sourcery: AutoMockable
 protocol RecipesListInteractorInterface: class {
     func getRecipes(query: String, page: Int, completion: @escaping ([Recipe]?, Error?) -> ())
+    func saveRecipe(recipe: Recipe) throws
 }
 
 class RecipesListInteractor {
     weak var presenter: RecipesListPresenterInterface?
     private let getRecipesUseCase: GetRecipeUseCaseInterface
+    private let saveFavoriteRecipeUseCase: SaveFavoriteRecipeUseCaseInterface
     
-    init(getRecipesUseCase: GetRecipeUseCaseInterface) {
+    init(getRecipesUseCase: GetRecipeUseCaseInterface, saveFavoriteRecipeUseCase: SaveFavoriteRecipeUseCaseInterface) {
         self.getRecipesUseCase = getRecipesUseCase
+        self.saveFavoriteRecipeUseCase = saveFavoriteRecipeUseCase
     }
 }
 
@@ -32,5 +35,13 @@ extension RecipesListInteractor: RecipesListInteractorInterface {
                 completion(nil, error)
             }
         })
+    }
+    
+    func saveRecipe(recipe: Recipe) throws {
+        do {
+            try saveFavoriteRecipeUseCase.execute(recipe: recipe)
+        } catch {
+            throw error
+        }
     }
 }
