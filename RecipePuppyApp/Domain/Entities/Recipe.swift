@@ -12,10 +12,12 @@ struct Recipe {
     let title: String
     let ingredients: String
     let imageURL: String
+    let href: String
     
-    init(title: String = "", ingredients: String = "", imageURL: String = "") {
+    init(title: String = "", ingredients: String = "", imageURL: String = "", href: String = "") {
         self.title = title
         self.ingredients = ingredients
         self.imageURL = imageURL
+        self.href = href
     }
 }
