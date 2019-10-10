@@ -1,0 +1,12 @@
+sourceryCommand: null
+RecipePuppyAppTests:
+  sources:
+    include:
+    - ./RecipePuppyApp
+  output: ./RecipePuppyAppTests/Mock.generated.swift
+  targets:
+  - RecipePuppyAppTests
+  testable:
+  - RecipePuppyApp
+  import:
+  - Foundation

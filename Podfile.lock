@@ -1,0 +1,32 @@
+PODS:
+  - Kingfisher (5.8.2):
+    - Kingfisher/Core (= 5.8.2)
+  - Kingfisher/Core (5.8.2)
+  - Sourcery (0.17.0)
+  - SwiftyMocky (3.3.4):
+    - SwiftyMocky/Core (= 3.3.4)
+  - SwiftyMocky/Core (3.3.4):
+    - Sourcery (>= 0.16)
+  - Swinject (2.7.1)
+
+DEPENDENCIES:
+  - Kingfisher
+  - SwiftyMocky
+  - Swinject
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Kingfisher
+    - Sourcery
+    - SwiftyMocky
+    - Swinject
+
+SPEC CHECKSUMS:
+  Kingfisher: 3adc15096595f5aed800bb0d5cb757fc58b2d2dd
+  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
+  SwiftyMocky: 7e4e7088166c013559a26ccc8b8d6508c3730826
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+
+PODFILE CHECKSUM: d0ccf55784de5d41ee8eec72e1c3994cd6372852
+
+COCOAPODS: 1.6.1
