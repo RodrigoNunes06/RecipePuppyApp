@@ -44,6 +44,10 @@
 		9FB896E9234E4340004C3B85 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896E5234E4340004C3B85 /* RecipeDetailViewController.swift */; };
 		9FB896EA234E4340004C3B85 /* RecipeDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896E6234E4340004C3B85 /* RecipeDetailRouter.swift */; };
 		9FB896EC234E4522004C3B85 /* RecipeCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896EB234E4522004C3B85 /* RecipeCollectionCellViewModel.swift */; };
+		9FB896F2234F795F004C3B85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896F0234F795F004C3B85 /* WebViewController.swift */; };
+		9FB896F3234F795F004C3B85 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB896F1234F795F004C3B85 /* WebViewController.xib */; };
+		9FB896F6234F8D0D004C3B85 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896F5234F8D0D004C3B85 /* LocalDataManager.swift */; };
+		9FB896FA234FB4EF004C3B85 /* GetFavoriteRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB896F9234FB4EF004C3B85 /* GetFavoriteRecipesUseCase.swift */; };
 		B6D03E9BF249B513291EC1BB /* Pods_RecipePuppyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11177C86E845EEE57DCBC9F9 /* Pods_RecipePuppyAppTests.framework */; };
 		EE8C4965AE85C1875B2E9C2A /* Pods_RecipePuppyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9648B8D1FA3FDD2951DB5CD1 /* Pods_RecipePuppyApp.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +119,10 @@
 		9FB896E5234E4340004C3B85 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		9FB896E6234E4340004C3B85 /* RecipeDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailRouter.swift; sourceTree = "<group>"; };
 		9FB896EB234E4522004C3B85 /* RecipeCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		9FB896F0234F795F004C3B85 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		9FB896F1234F795F004C3B85 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		9FB896F5234F8D0D004C3B85 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
+		9FB896F9234FB4EF004C3B85 /* GetFavoriteRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoriteRecipesUseCase.swift; sourceTree = "<group>"; };
 		C84495DAE7D0DDF72421FEE6 /* Pods-RecipePuppyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipePuppyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-RecipePuppyAppUITests/Pods-RecipePuppyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F21367B7D2B62B5871D7DCD7 /* Pods-RecipePuppyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipePuppyApp.debug.xcconfig"; path = "Target Support Files/Pods-RecipePuppyApp/Pods-RecipePuppyApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +245,7 @@
 			children = (
 				9F5F965B234A2D96008445C8 /* Entities */,
 				9F5F965C234A2D9F008445C8 /* Network */,
+				9FB896F4234F8CEC004C3B85 /* LocalStorage */,
 				9F5F965D234A2DAF008445C8 /* Repositories */,
 			);
 			path = Data;
@@ -264,6 +273,7 @@
 		9F5F965A234A2D2E008445C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9FB896EF234F791D004C3B85 /* WebView */,
 				9FB896E2234E4340004C3B85 /* RecipeDetailModule */,
 				9FB896D2234E3066004C3B85 /* RecipiesListModule */,
 			);
@@ -326,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				9FB896CC234DD906004C3B85 /* GetRecipeUseCase.swift */,
+				9FB896F9234FB4EF004C3B85 /* GetFavoriteRecipesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -402,6 +413,23 @@
 				9FB896E6234E4340004C3B85 /* RecipeDetailRouter.swift */,
 			);
 			path = RecipeDetailModule;
+			sourceTree = "<group>";
+		};
+		9FB896EF234F791D004C3B85 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				9FB896F0234F795F004C3B85 /* WebViewController.swift */,
+				9FB896F1234F795F004C3B85 /* WebViewController.xib */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		9FB896F4234F8CEC004C3B85 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9FB896F5234F8D0D004C3B85 /* LocalDataManager.swift */,
+			);
+			path = LocalStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +544,7 @@
 				9FB896E1234E373E004C3B85 /* RecipeCollectionViewCell.xib in Resources */,
 				9F5F9633234A2355008445C8 /* LaunchScreen.storyboard in Resources */,
 				9F5F9630234A2355008445C8 /* Assets.xcassets in Resources */,
+				9FB896F3234F795F004C3B85 /* WebViewController.xib in Resources */,
 				9FB896DD234E3123004C3B85 /* RecipesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,7 +697,10 @@
 				9FB896A8234C796C004C3B85 /* NetworkError.swift in Sources */,
 				9F5F966A234B30CD008445C8 /* HTTPTask.swift in Sources */,
 				9F5F9627234A2354008445C8 /* AppDelegate.swift in Sources */,
+				9FB896F6234F8D0D004C3B85 /* LocalDataManager.swift in Sources */,
 				9FB896D8234E3066004C3B85 /* RecipesListInteractor.swift in Sources */,
+				9FB896FA234FB4EF004C3B85 /* GetFavoriteRecipesUseCase.swift in Sources */,
+				9FB896F2234F795F004C3B85 /* WebViewController.swift in Sources */,
 				9FB896EA234E4340004C3B85 /* RecipeDetailRouter.swift in Sources */,
 				9FB896BD234D05B2004C3B85 /* RecipeEntityDataMapper.swift in Sources */,
 				9FB896EC234E4522004C3B85 /* RecipeCollectionCellViewModel.swift in Sources */,
