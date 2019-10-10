@@ -9,16 +9,13 @@
 import Foundation
 
 final class RecipeRepositoryImpl: RecipeRepository {
-    private let service: RecipiesServiceApi
     
-    init(service: RecipiesServiceApi) {
-        self.service = service
-    }
+    private let service = RecipesService.shared
     
-    func searchRecipes(recipe: String,
-                       page: Int,
-                       completion: @escaping(Result<[Recipe], Error>) -> Void) {
-        service.getRecipies(query: recipe, page: page) { result in
+    func getRecipes(recipe: String,
+                    page: Int,
+                    completion: @escaping RepositoryResult) {
+        service.getRecipes(query: recipe, page: page) { result in
             switch result {
             case let .success(recipiesEntityArray):
                 let recipies = recipiesEntityArray.map { recipeEntity -> Recipe in
