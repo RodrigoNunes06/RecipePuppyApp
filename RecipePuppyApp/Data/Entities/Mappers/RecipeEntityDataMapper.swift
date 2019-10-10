@@ -13,9 +13,10 @@ struct RecipeEntityDataMapper: DataMapper {
     typealias Domain = Recipe
     
     func transform(entity: Entity) -> Domain {
-        return Domain(title: entity.title ?? "",
-                      ingredients: entity.ingredients ?? "",
-                      imageURL: entity.imageURL ?? "")
+        return Domain(title: entity.title,
+                      ingredients: entity.ingredients,
+                      imageURL: entity.imageURL,
+                      href: entity.href)
     }
 }
 
