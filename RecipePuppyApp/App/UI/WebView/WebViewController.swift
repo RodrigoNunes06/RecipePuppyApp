@@ -7,24 +7,48 @@
 //
 
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController {
 
+    @IBOutlet private var webView: WKWebView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
+    private let url: URL
+    
+    init(url: URL) {
+        self.url = url
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupActivityIndicator()
+        setupWebView()
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+private extension WebViewController {
+    func setupWebView() {
+        webView.navigationDelegate = self
+        webView.load(URLRequest(url: url))
     }
-    */
+    
+    func setupActivityIndicator() {
+        activityIndicator.isHidden = false
+        activityIndicator.layer.cornerRadius = 4
+        activityIndicator.startAnimating()
+    }
+}
 
+extension WebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
 }
