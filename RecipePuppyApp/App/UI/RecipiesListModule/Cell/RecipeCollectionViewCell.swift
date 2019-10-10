@@ -19,6 +19,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var ingredientsLabel: UILabel!
     @IBOutlet private var favoriteButton: UIButton!
+    @IBOutlet private var lactoseLabel: UILabel!
     
     weak var delegate: RecipeCollectionViewCellDelegate?
     
@@ -37,6 +38,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         widthConstraint.priority = .init(rawValue: 999)
         widthConstraint.isActive = true
         setupButton()
+        setLactoseLabel()
     }
     
     static func preferredNibName() -> String {
@@ -51,6 +53,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         titleLabel.text = viewModel.name
         ingredientsLabel.text = viewModel.ingredients
         imageView.kf.setImage(with: URL(string: viewModel.imageURL))
+        lactoseLabel.isHidden = !viewModel.hasLactose
     }
 }
 
@@ -58,6 +61,13 @@ private extension RecipeCollectionViewCell {
     func setupButton() {
         favoriteButton.layer.cornerRadius = 4.0
         favoriteButton.clipsToBounds = true
+    }
+    
+    func setLactoseLabel() {
+        lactoseLabel.text = "Lactose"
+        lactoseLabel.textColor = .white
+        lactoseLabel.backgroundColor = .blue
+        lactoseLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
     }
     
     @IBAction func onTapFavorite(_ sender: Any) {

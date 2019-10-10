@@ -70,12 +70,24 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="De3-Ir-0O3" secondAttribute="trailing" constant="15" id="wX0-JY-Asp"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqJ-4n-j9T">
+                                <rect key="frame" x="265" y="10" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LED-GP-8sF"/>
+                                    <constraint firstAttribute="width" constant="200" id="YnX-R2-XRb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sj5-fC-8mp" firstAttribute="top" secondItem="RAN-y3-Zbp" secondAttribute="top" id="KNi-HN-T5V"/>
                             <constraint firstAttribute="trailing" secondItem="NuQ-ZP-U9F" secondAttribute="trailing" id="RAz-Vy-yIN"/>
+                            <constraint firstItem="lqJ-4n-j9T" firstAttribute="top" secondItem="RAN-y3-Zbp" secondAttribute="top" constant="10" id="U5N-ms-WKs"/>
                             <constraint firstAttribute="bottom" secondItem="NuQ-ZP-U9F" secondAttribute="bottom" id="a6l-OL-EVl"/>
+                            <constraint firstAttribute="trailing" secondItem="lqJ-4n-j9T" secondAttribute="trailing" constant="-65" id="bWK-mx-eqw"/>
                             <constraint firstItem="NuQ-ZP-U9F" firstAttribute="leading" secondItem="RAN-y3-Zbp" secondAttribute="leading" id="eYU-Am-tml"/>
                             <constraint firstItem="sj5-fC-8mp" firstAttribute="leading" secondItem="RAN-y3-Zbp" secondAttribute="leading" id="kNI-Re-eO1"/>
                             <constraint firstItem="NuQ-ZP-U9F" firstAttribute="top" secondItem="sj5-fC-8mp" secondAttribute="bottom" id="x7l-wr-jf4"/>
@@ -97,6 +109,7 @@
                 <outlet property="favoriteButton" destination="Mqa-lt-1Xp" id="f5f-E6-MzT"/>
                 <outlet property="imageView" destination="sj5-fC-8mp" id="ZzU-SG-4Hp"/>
                 <outlet property="ingredientsLabel" destination="De3-Ir-0O3" id="mrq-HN-wqr"/>
+                <outlet property="lactoseLabel" destination="lqJ-4n-j9T" id="Jwa-Ta-ltM"/>
                 <outlet property="titleLabel" destination="qPU-fu-zsd" id="XS8-1D-BWd"/>
             </connections>
             <point key="canvasLocation" x="-317" y="13"/>
