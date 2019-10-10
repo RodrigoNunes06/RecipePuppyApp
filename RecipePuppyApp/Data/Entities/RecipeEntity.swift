@@ -12,6 +12,7 @@ struct RecipeEntity {
     let title: String
     let ingredients: String
     let imageURL: String
+    let href: String
 }
 
 extension RecipeEntity: Decodable {
@@ -19,6 +20,7 @@ extension RecipeEntity: Decodable {
         case title
         case ingredients
         case imageURL = "thumbnail"
+        case href
     }
     
     init(from decoder: Decoder) throws {
@@ -27,6 +29,7 @@ extension RecipeEntity: Decodable {
         title = try container.decode(String.self, forKey: .title)
         ingredients = try container.decode(String.self, forKey: .ingredients)
         imageURL = try container.decode(String.self, forKey: .imageURL)
+        href = try container.decode(String.self, forKey: .href)
     }
 }
 
