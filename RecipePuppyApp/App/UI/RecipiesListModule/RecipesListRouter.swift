@@ -18,23 +18,26 @@ protocol RecipesListRouterInterface: class {
 class RecipesListRouter {
 
     weak var presenter: RecipesListPresenterInterface?
+    weak var navigationController: UINavigationController?
 
-    static func setupModule() -> RecipesListViewController {
+    static func setupModule() -> UINavigationController {
         let vc = RecipesListViewController()
         let interactor = RecipesListInteractor(getRecipesUseCase: GetRecipeUseCase())
         let router = RecipesListRouter()
         let presenter = RecipesListPresenter(interactor: interactor, router: router, view: vc)
-
+        let navigationController = UINavigationController(rootViewController: vc)
         vc.presenter = presenter
         router.presenter = presenter
+        router.navigationController = navigationController
         interactor.presenter = presenter
-        return vc
+        return navigationController
     }
 }
 
 extension RecipesListRouter: RecipesListRouterInterface {
     func showWebView(url: URL) {
-        
+        let webViewController = WebViewController(url: url)
+        navigationController?.present(webViewController, animated: true, completion: nil)
     }
     
     func showFavoritesScreen() {

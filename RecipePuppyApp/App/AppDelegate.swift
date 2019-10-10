@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = RecipesListRouter.setupModule()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        self.window?.rootViewController = navigationController
+        
+        let rootNavigationController = RecipesListRouter.setupModule()
+        self.window?.rootViewController = rootNavigationController
         self.window?.makeKeyAndVisible()
         return true
     }
