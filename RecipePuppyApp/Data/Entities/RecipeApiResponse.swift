@@ -10,7 +10,7 @@ import Foundation
 
 struct RecipeApiResponse {
     let title: String
-    let version: Int
+    let version: Float
     let href: String
     let recipies: [RecipeEntity]
 }
@@ -27,7 +27,7 @@ extension RecipeApiResponse: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         title = try container.decode(String.self, forKey: .title)
-        version = try container.decode(Int.self, forKey: .version)
+        version = try container.decode(Float.self, forKey: .version)
         href = try container.decode(String.self, forKey: .href)
         recipies = try container.decode([RecipeEntity].self, forKey: .recipies)
     }
