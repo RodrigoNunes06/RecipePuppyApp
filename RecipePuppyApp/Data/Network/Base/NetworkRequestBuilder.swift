@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery: AutoMockable
 protocol NetworkRequestBuilderApi {
     func buildRequest(from endPoint: NetworkEndPoint) throws -> URLRequest
     func configureParameters(bodyParameters: Parameters?,

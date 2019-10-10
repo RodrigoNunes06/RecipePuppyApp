@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery: AutoMockable
 protocol NetworkEndPoint {
     var baseURL: URL { get }
     var path: String { get }
