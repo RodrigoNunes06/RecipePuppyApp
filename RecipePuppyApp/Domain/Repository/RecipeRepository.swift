@@ -8,8 +8,10 @@
 
 import Foundation
 
+typealias RepositoryResult = (Result<[Recipe], Error>) -> ()
+
 protocol RecipeRepository {
-    func searchRecipes(recipe: String,
-                       page: Int,
-                       completion: @escaping(Result<[Recipe], Error>) -> Void)
+    func getRecipes(recipe: String,
+                    page: Int,
+                    completion: @escaping RepositoryResult)
 }
