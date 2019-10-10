@@ -14,4 +14,6 @@ protocol RecipeRepository {
     func getRecipes(recipe: String,
                     page: Int,
                     completion: @escaping RepositoryResult)
+    
+    func getFavoriteRecipes() -> [Recipe]
 }

@@ -18,7 +18,7 @@ final class RecipeRepositoryImpl: RecipeRepository {
         service.getRecipes(query: recipe, page: page) { result in
             switch result {
             case let .success(recipiesEntityArray):
-                let recipies = recipiesEntityArray.map { recipeEntity -> Recipe in
+                let recipies = recipiesEntityArray.map { recipeEntity in
                     return RecipeEntityDataMapper().transform(entity: recipeEntity)
                 }
                 completion(.success(recipies))
@@ -26,5 +26,12 @@ final class RecipeRepositoryImpl: RecipeRepository {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getFavoriteRecipes() -> [Recipe] {
+        let recipes = LocalDataManager.loadAll(type: RecipeEntity.self).map { recipeEntity in
+            return RecipeEntityDataMapper().transform(entity: recipeEntity)
+        }
+        return recipes
     }
 }
