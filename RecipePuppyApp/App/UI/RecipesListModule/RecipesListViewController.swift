@@ -39,6 +39,32 @@ class RecipesListViewController: UIViewController {
         super.viewDidAppear(animated)
         presenter?.onSearchRecipe(recipe: "omelet")
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        guard
+            let previousTraitCollection = previousTraitCollection,
+            traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass ||
+            traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass
+        else {
+            return
+        }
+
+        flowLayout.invalidateLayout()
+        collectionView.reloadData()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        flowLayout.invalidateLayout()
+        setupFlowLayout()
+
+        coordinator.animate(alongsideTransition: { _ in }, completion: { [unowned self] _ in
+            self.flowLayout.invalidateLayout()
+        })
+    }
 }
 
 extension RecipesListViewController: RecipesListViewControllerInterface {
@@ -76,9 +102,13 @@ extension RecipesListViewController: RecipesListViewControllerInterface {
 private extension RecipesListViewController {
     
     func setupNavigationBar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Recipes"
-        self.navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Recipes"
+        navigationController?.navigationBar.barTintColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favorites",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(onFavoritesTap))
     }
     
     func setupFlowLayout() {
@@ -92,7 +122,6 @@ private extension RecipesListViewController {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .gray
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(UINib(nibName: RecipeCollectionViewCell.preferredNibName(),bundle: nil),
                                 forCellWithReuseIdentifier: RecipeCollectionViewCell.reuseIdentifier())
@@ -105,6 +134,10 @@ private extension RecipesListViewController {
     func setupActivityIndicator() {
         activityIndicator.isHidden = true
         activityIndicator.layer.cornerRadius = 4
+    }
+    
+    @objc func onFavoritesTap() {
+        presenter?.onTapShowFavorites()
     }
 }
 
