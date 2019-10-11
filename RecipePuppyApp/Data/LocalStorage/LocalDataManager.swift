@@ -33,7 +33,7 @@ struct LocalDataManager: LocalDataManagerInterface {
     static func load <T: Decodable> (fileName: String, type: T.Type) -> T? {
         let url = getDocumentDirectory().appendingPathComponent(fileName, isDirectory: false)
         
-        guard !FileManager.default.fileExists(atPath: url.path) else {
+        guard FileManager.default.fileExists(atPath: url.path) else {
             return nil
         }
         
