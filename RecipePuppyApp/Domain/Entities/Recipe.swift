@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipe {
+struct Recipe: Equatable {
     let title: String
     let ingredients: String
     let imageURL: String
