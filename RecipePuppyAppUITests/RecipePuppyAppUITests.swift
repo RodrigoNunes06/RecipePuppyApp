@@ -10,26 +10,50 @@ import XCTest
 
 class RecipePuppyAppUITests: XCTestCase {
 
+    var app: XCUIApplication!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        super.setUp()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launchArguments.append("--uitesting")
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testSearchBarAppears() {
+        app.launch()
+        XCTAssertTrue(app.searchFields.count > 0)
     }
 
-    func testExample() {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    func testFavoriteButtonAppears() {
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertTrue(app.collectionViews.cells.buttons["Favorite"].exists)
+    }
+    
+    func testFavoritesNavigationBarButtonAppears() {
+        app.launch()
+        XCTAssertTrue(app.navigationBars.buttons["Favorites"].exists)
+    }
+    
+    func testTapOnFavoriteButtonShowsSavedAlert() {
+        app.launch()
+        app.collectionViews.cells.buttons["Favorite"].firstMatch.tap()
+        XCTAssertTrue(app.alerts["Saved"].exists)
+    }
+    
+    func testTapOnCellShowsModalWithWebView() {
+        app.launch()
+        app.collectionViews.cells.firstMatch.tap()
+        XCTAssertTrue(app.webViews.firstMatch.exists)
+    }
+    
+    func testTapOnFavoritesNavBarButtonShowsFavorites() {
+        app.launch()
+        app.navigationBars.buttons["Favorites"].firstMatch.tap()
+        XCTAssertTrue(app.navigationBars.staticTexts["Favorite Recipes"].exists)
     }
 
     func testLaunchPerformance() {

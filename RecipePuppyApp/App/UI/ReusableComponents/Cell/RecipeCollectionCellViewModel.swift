@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RecipeCollectionCellViewModel {
+struct RecipeCollectionCellViewModel: Equatable {
     let name: String
     let ingredients: String
     let imageURL: String
