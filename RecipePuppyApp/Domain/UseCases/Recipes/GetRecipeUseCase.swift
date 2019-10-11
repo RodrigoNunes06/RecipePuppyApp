@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery: AutoMockable
 protocol GetRecipeUseCaseInterface {
     func execute(recipe: String,
                  page: Int,

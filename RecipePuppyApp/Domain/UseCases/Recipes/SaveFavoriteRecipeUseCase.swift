@@ -8,6 +8,7 @@
 
 import Foundation
 
+//sourcery: AutoMockable
 protocol SaveFavoriteRecipeUseCaseInterface {
     func execute(recipe: Recipe) throws
 }
