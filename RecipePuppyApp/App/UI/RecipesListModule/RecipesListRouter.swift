@@ -42,7 +42,8 @@ extension RecipesListRouter: RecipesListRouterInterface {
     }
     
     func showFavoritesScreen() {
-        
+        let vc = FavoriteRecipesListRouter.setupModule(navigationController: navigationController!)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
