@@ -6,10 +6,9 @@ target 'RecipePuppyApp' do
 
   pod 'Swinject'
   pod 'Kingfisher'
-  pod 'SwiftyMocky'
 
   target 'RecipePuppyAppTests' do
-    inherit! :search_paths
+    pod 'SwiftyMocky'
   end
 
   target 'RecipePuppyAppUITests' do

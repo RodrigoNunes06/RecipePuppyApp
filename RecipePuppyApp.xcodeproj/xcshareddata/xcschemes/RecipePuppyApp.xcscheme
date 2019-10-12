@@ -20,6 +20,20 @@
                ReferencedContainer = "container:RecipePuppyApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9F5F9638234A2355008445C8"
+               BuildableName = "RecipePuppyAppTests.xctest"
+               BlueprintName = "RecipePuppyAppTests"
+               ReferencedContainer = "container:RecipePuppyApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
