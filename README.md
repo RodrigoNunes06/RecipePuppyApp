@@ -37,8 +37,7 @@ We could discuss on that.
 
 ### Architechture
 
-For this project I used a simple protocol oriented VIPER implementation as I saw it was fit for the simplicity of the project.
-
+For this project I used a simple protocol oriented VIPER implementation.
 ## Comments
 
 For local storage used the FileManager, as the object and it's use case were simple.
